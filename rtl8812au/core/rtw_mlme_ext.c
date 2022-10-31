@@ -11472,9 +11472,12 @@ unsigned int receive_disconnect(_adapter *padapter, unsigned char *MacAddr, unsi
 	struct mlme_ext_priv	*pmlmeext = &padapter->mlmeextpriv;
 	struct mlme_ext_info	*pmlmeinfo = &(pmlmeext->mlmext_info);
 
+	RTW_INFO("receive_disconnect : ignored");
+	return _SUCCESS;
+
 	if (!(_rtw_memcmp(MacAddr, get_my_bssid(&pmlmeinfo->network), ETH_ALEN)))
 		return _SUCCESS;
-
+	
 	RTW_INFO("%s\n", __FUNCTION__);
 
 #ifdef CONFIG_RTW_REPEATER_SON
